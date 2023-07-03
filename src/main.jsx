@@ -8,7 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from './Pages/Layout/Layout';
-import Hero from './Pages/Hero/Hero';
+import Home from './Pages/Home/Home';
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -17,10 +20,13 @@ const router = createBrowserRouter([
     children : [
       {
       path : "/",
-      element: <Hero></Hero>
-    }
+      element: <Home></Home>
+    },
     ]
+   
   }
+  
+
   
 ]);
 

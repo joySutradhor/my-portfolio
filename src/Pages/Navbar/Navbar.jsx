@@ -6,7 +6,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
  
 export default function Example() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -19,14 +19,21 @@ export default function Example() {
   }, []);
  
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
+    <ul className=" cursor-pointer mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
       <Typography
         as="li"
         variant="small"
         color="white"
         className="p-1 font-normal"
       >
-        <Link  className="flex items-center">
+        <Link 
+        activeClass="active"
+        to="home"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+         className="flex items-center">
           Home
         </Link>
       </Typography>
@@ -36,8 +43,15 @@ export default function Example() {
         color="white"
         className="p-1 font-normal"
       >
-        <Link  className="flex items-center">
-          About Me
+        <Link 
+        activeClass="active"
+        to="skill"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+         className="flex items-center">
+          My Skill
         </Link>
       </Typography>
       <Typography
@@ -46,28 +60,16 @@ export default function Example() {
         color="white"
         className="p-1 font-normal"
       >
-        <Link  className="flex items-center">
-          What I Do
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="white"
-        className="p-1 font-normal"
-      >
-        <Link  className="flex items-center">
-          Portfolio
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="white"
-        className="p-1 font-normal"
-      >
-        <Link  className="flex items-center">
-          Blog
+        <Link 
+        activeClass="active"
+        to="projects"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+         className="flex items-center">
+          
+          My Projects
         </Link>
       </Typography>
     </ul>
@@ -75,7 +77,7 @@ export default function Example() {
  
   return (
     <>
-      <Navbar className="sticky top-0 z-10 h-max max-w-6xl mx-auto bg-transparent backdrop-blur-none border-none  shadow-none rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky top-0 z-10 w-screen bg-transparent  border-none  shadow-none rounded-none ">
         <div className="flex items-center justify-between text-white">
           <Typography
             as="Link"
@@ -91,7 +93,14 @@ export default function Example() {
               size="sm"
               className="hidden lg:inline-block"
             >
-              <span>Contact Me</span>
+              <Link 
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+               >Contact Me</Link>
             </Button>
             <IconButton
               variant="text"
